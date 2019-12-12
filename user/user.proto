@@ -4,17 +4,11 @@ package user;
 
 option go_package = "userpb";
 
-message GetHRTFFromNameReq {
-    string Name = 1;
-}
-
-
-service User {
-	rpc CreateUser(CreateUserReq) returns(CreateUserRes);
-	rpc ReadUser(ReadUserReq) returns(ReadUserRes);
-	rpc UpdateUser(UpdateUserReq) returns(UpdateUserRes);
-	rpc DeleteUser(DeleteUserReq) returns(DeleteUserRes);
-    }
+service UserData {
+	rpc Create (CreateUserReq) returns(CreateUserRes);
+	rpc Read (ReadUserReq) returns(ReadUserRes);
+	rpc Update (UpdateUserReq) returns(UpdateUserRes);
+	rpc Delete (DeleteUserReq) returns(DeleteUserRes);
 }
 
 message User {
@@ -22,8 +16,8 @@ message User {
 	string user_name = 2;
 	string password = 3;
 	string first_name = 4;
-	string last_name = 4;
-	string role = 5;
+	string last_name = 5;
+	string role = 6;
 }
 
 message CreateUserReq {
