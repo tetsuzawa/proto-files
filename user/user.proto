@@ -1,0 +1,59 @@
+syntax = "proto3";
+
+package user;
+
+option go_package = "userpb";
+
+message GetHRTFFromNameReq {
+    string Name = 1;
+}
+
+
+service User {
+	rpc CreateUser(CreateUserReq) returns(CreateUserRes);
+	rpc ReadUser(ReadUserReq) returns(ReadUserRes);
+	rpc UpdateUser(UpdateUserReq) returns(UpdateUserRes);
+	rpc DeleteUser(DeleteUserReq) returns(DeleteUserRes);
+    }
+}
+
+message User {
+	string id = 1;
+	string user_name = 2;
+	string password = 3;
+	string first_name = 4;
+	string last_name = 4;
+	string role = 5;
+}
+
+message CreateUserReq {
+	User user = 1; //User id blank
+}
+
+message CreateUserRes {
+	User user = 1; //User id filled in
+}
+
+message UpdateUserReq {
+	User user = 1;
+}
+
+message UpdateUserRes {
+	User user = 1;
+}
+
+message ReadUserReq {
+	string id = 1;
+}
+
+message ReadUserRes {
+	User user = 1;
+}
+
+message DeleteUserReq {
+	string id = 1;
+}
+
+message DeleteUserRes {
+	bool is_success = 1;
+}
