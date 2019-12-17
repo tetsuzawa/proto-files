@@ -1,12 +1,14 @@
 syntax = "proto3";
 
-package paymentservice;
+package pay;
+
+option go_package = "paypb";
 
 service PayManager {
-  rpc Charge (PayRequest) returns (PayResponse) {}
+  rpc Charge (PayReq) returns (PayRes) {}
 }
 
-message PayRequest {
+message PayReq {
   int64 id = 1;
   string token = 2;
   int64 amount = 3;
@@ -14,7 +16,7 @@ message PayRequest {
   string description = 5;
 }
 
-message PayResponse {
+message PayRes {
   bool paid = 1;
   bool captured = 3;
   int64 amount = 2;
