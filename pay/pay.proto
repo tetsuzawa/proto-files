@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package pay;
 
-option go_package = "paypb";
+option go_package = "pay";
 
 service PayManager {
   rpc Charge (PayReq) returns (PayRes) {}
