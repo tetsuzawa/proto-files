@@ -5,47 +5,57 @@ package blog;
 option go_package = "blogpb";
 
 service BlogData {
-	rpc Create (CreateBlogReq) returns(CreateBlogRes);
-	rpc Read (ReadBlogReq) returns(ReadBlogRes);
-	rpc Update (UpdateBlogReq) returns(UpdateBlogRes);
-	rpc Delete (DeleteBlogReq) returns(DeleteBlogRes);
+    rpc Create (CreateBlogReq) returns (CreateBlogRes);
+    rpc Read (ReadBlogReq) returns (ReadBlogRes);
+    rpc Update (UpdateBlogReq) returns (UpdateBlogRes);
+    rpc Delete (DeleteBlogReq) returns (DeleteBlogRes);
+    rpc List (ListBlogReq) returns (stream ListBlogRes);
 }
 
 message Blog {
-	string id = 1;
-	string auther_id = 2;
-	string title = 3;
-	string content = 4;
+    string id = 1;
+    string author_id = 2;
+    string title = 3;
+    string content = 4;
 }
 
 message CreateBlogReq {
-	Blog blog = 1; //Blog id blank
+    Blog blog = 1; //Blog id blank
 }
 
 message CreateBlogRes {
-	Blog blog = 1; //Blog id filled in
+    Blog blog = 1; //Blog id filled in
 }
 
 message UpdateBlogReq {
-	Blog blog = 1;
+    Blog blog = 1;
 }
 
 message UpdateBlogRes {
-	Blog blog = 1;
+    Blog blog = 1;
 }
 
 message ReadBlogReq {
-	string id = 1;
+    string id = 1;
 }
 
 message ReadBlogRes {
-	Blog blog = 1;
+    Blog blog = 1;
 }
 
 message DeleteBlogReq {
-	string id = 1;
+    string id = 1;
 }
 
 message DeleteBlogRes {
-	bool is_success = 1;
+    bool is_success = 1;
 }
+
+message ListBlogReq {
+
+}
+
+message ListBlogRes {
+    Blog blog = 1;
+}
+
